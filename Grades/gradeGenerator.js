@@ -1,23 +1,30 @@
-
-function studentsMarks(mark){
-    if (mark > 79) {
-        return 'A';
-    }else if (mark>=60){
-        return 'B';
-    }else if (mark >=50){
-        return 'C';
-    }else if (mark>=40){
-        return 'D';
+const { Console } = require("console");
+const readline= require ("readline");
+   const rl = readline.createInterface ({
+     input: process.stdin,
+     output: process.stdout
+   });
+   //The Readline module makes it easier to input and read the output given by the user
+function studentsGrade(marks){
+    let grade;
+    if (marks > 79) {
+          grade='A';
+    }else if (marks>=60){
+         grade='B';
+    }else if (marks >=50){
+         grade='C';
+    }else if (marks>=40){
+         grade= 'D';
     }else{
-        return 'E';
+         grade='E';
     }
+    return (grade);
     //it assigns the grades according to the marks entered
 }
-function studentsMarksGenerator(){
-    const mark = ('Enter the student mark (0-100)')
-    //Enter marks to be graded
+rl.question('Enter the student mark (0-100)', (mark)=>{
+    const Grade = studentGrade(parseInt(mark));
+    console.log(`The student grade is: ${grade}`);
+    rl.close();
 }
-const grade = calculateGrade(mark);
-    return `The student got : ${grade}`;
-  
-    console.log("Net Salary:", result.netSalary);
+);
+//it calls a function and displays the grade

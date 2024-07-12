@@ -1,19 +1,17 @@
-function speedInput(speed){
- const speedLimmit="70"
- let  demeritpoints="0"
- if (speed > speedLimit) {
-    demeritPoints = Math.floor((speed - speedLimit) / 5);
-    //it divides the speed above 70 by 5
-  }
+function speedDetector(speed){
+ //it checks the speed limit 
+ if(speed<=70){
+    return("OK");
+ }else{
+    //calculate the demerit points
+    demeritPoints = Math.floor((speed - 70) / 5)
+    // suspends the license if the demerit points exceed 12
+    if(demeritPoints>12){
+        return ("License suspended");
+    }else{
+        return ("points",demeritPoints)
+    }
+  }  
 }
-function calculate(){
-    const demeritPoints= calculateDemeritPoints(speed);
-if (demeritPoints>0){
-    return ("points",demeritPoints);
-}else if (demeritpoints>12){
-    return ("License suspended")
-}else{
-    return "OK"
-    //returns "OK"if the speed is below 70km/hr
-}
-}
+
+
